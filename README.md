@@ -1,0 +1,2 @@
+# essence-bot
+Essence Bot
