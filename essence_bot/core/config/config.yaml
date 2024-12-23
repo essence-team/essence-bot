@@ -1,0 +1,26 @@
+admins:
+  - user_id: 428816906
+    username: pavelkochkin1
+
+antiflood:
+  max_message_per_sec: 1
+
+
+subscriptions:
+  - title: Подписка на 1 месяц
+    description: 1 месяц подписки на дайджесты по твоим любимым каналам
+    price: 14900  # 149 рублей (в копейках)
+    payload: 1month
+    duration_days: 30
+
+  - title: Подписка на 3 месяца
+    description: 3 месяца подписки на дайджесты по твоим любимым каналам
+    price: 34900  # 349 рублей
+    payload: 3month
+    duration_days: 90
+
+  - title: Подписка на 6 месяцев
+    description: 6 месяцев подписки на дайджесты по твоим любимым каналам
+    price: 64900  # 649 рублей
+    payload: 6month
+    duration_days: 180
