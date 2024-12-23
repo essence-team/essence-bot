@@ -1,0 +1,13 @@
+services:
+  essence_bot:
+    image: essence_bot:dev
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: essence_bot
+    networks:
+        - essence_network
+
+networks:
+  essence_network:
+    driver: bridge
