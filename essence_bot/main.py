@@ -46,6 +46,8 @@ async def main():
     dp.callback_query.middleware(LoggerMiddleware(logger=logger))
     dp.callback_query.middleware(EssenceAPIMiddleware(essence_api=essence_api))
 
+    dp.pre_checkout_query.middleware(LoggerMiddleware(logger=logger))
+
     # ----------Routers-----------#
     dp.include_router(base_commands_router)
     dp.include_router(subscription_router)

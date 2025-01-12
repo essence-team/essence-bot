@@ -77,7 +77,7 @@ async def process_successful_payment(message: Message, essence_api: EssenceBacke
         return
 
     subscription_payload = payload.replace("subscription_payment_", "")
-    duration = payload2days.get(successful_payment.invoice_payload, None)
+    duration = payload2days.get(subscription_payload, None)
 
     if not duration:
         await message.answer("Неизвестный тип подписки. Пожалуйста, обратитесь в поддержку.")
@@ -88,7 +88,7 @@ async def process_successful_payment(message: Message, essence_api: EssenceBacke
         await essence_api.subscribe_user(
             payment_id=successful_payment.provider_payment_charge_id,
             user_id=user_id,
-            days_cnt=payload2days[successful_payment.invoice_payload],
+            days_cnt=duration,
         )
         logger.info(f"Updated subscription for user {user_id} for {duration} days.")
     except Exception as e:

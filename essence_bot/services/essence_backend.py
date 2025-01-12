@@ -149,3 +149,17 @@ class EssenceBackendAPI(BaseService):
         except Exception as e:
             print(f"An error occurred: {e}")
             raise
+
+    async def ask_question(self, user_id: str, clusters: List[int], digest_text: str, query_history: List[str]) -> str:
+        url = f"{self.base_url}/digest/ask"
+        data = {"user_id": user_id, "clusters": clusters, "digest_text": digest_text, "query_history": query_history}
+
+        try:
+            response = await self.post(url, data=data)
+            return response
+        except aiohttp.ClientResponseError as e:
+            print(f"HTTP Error: {e.status} - {e.message}")
+            raise
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            raise
