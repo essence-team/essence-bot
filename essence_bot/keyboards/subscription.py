@@ -45,7 +45,7 @@ async def get_subscription_option_kb(bot: Bot):
                     url=await bot.create_invoice_link(
                         title=sub.title,
                         description=sub.description,
-                        payload=sub.payload,
+                        payload="subscription_payment_" + sub.payload,
                         provider_token=provider_token,
                         currency="RUB",
                         prices=[LabeledPrice(label=sub.title, amount=sub.price)],
